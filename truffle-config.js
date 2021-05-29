@@ -24,6 +24,10 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const teamsMnemonic =
+  "swing soda frequent finger wedding bundle scale crisp leader soft current imitate";
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -72,6 +76,19 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+
+    teams: {
+      provider: function () {
+        return new HDWalletProvider(
+          teamsMnemonic,
+          "https://sandbox.truffleteams.com/bbe06883-7620-4848-a25e-1ac0087965ff",
+          0,
+          10,
+          false
+        );
+      },
+      network_id: 1622235497942,
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
