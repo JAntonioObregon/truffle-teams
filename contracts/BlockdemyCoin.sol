@@ -35,8 +35,8 @@ contract BlockdemyCoin {
         } */
     }
 
-    function getBalance() public view returns(uint) {
-        return balances[msg.sender];
+    function getBalance(address adr) public view returns(uint) {
+        return balances[adr];
     }
 
 }

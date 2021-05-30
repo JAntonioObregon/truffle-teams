@@ -25,8 +25,8 @@
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const teamsMnemonic =
-  "swing soda frequent finger wedding bundle scale crisp leader soft current imitate";
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
   /**
@@ -80,7 +80,7 @@ module.exports = {
     teams: {
       provider: function () {
         return new HDWalletProvider(
-          teamsMnemonic,
+          process.env.MNEMONIC,
           "https://sandbox.truffleteams.com/bbe06883-7620-4848-a25e-1ac0087965ff",
           0,
           10,
